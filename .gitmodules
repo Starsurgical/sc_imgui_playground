@@ -1,0 +1,16 @@
+[submodule "depends/SDL"]
+	path = depends/SDL
+	url = https://github.com/libsdl-org/SDL.git
+	fetchRecurseSubmodules = false
+[submodule "depends/SDL_image"]
+	path = depends/SDL_image
+	url = https://github.com/libsdl-org/SDL_image.git
+	fetchRecurseSubmodules = false
+[submodule "depends/imgui"]
+	path = depends/imgui
+	url = https://github.com/ocornut/imgui.git
+	fetchRecurseSubmodules = false
+[submodule "depends/SDL_mixer"]
+	path = depends/SDL_mixer
+	url = https://github.com/libsdl-org/SDL_mixer.git
+	fetchRecurseSubmodules = false
