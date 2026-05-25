@@ -10,6 +10,8 @@ static ImGuiStyle g_originalStyles;
 void InitThemesGlobal() {
   auto& io = ImGui::GetIO();
   io.ConfigDragClickToInputText = false;
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+  io.ConfigNavCursorVisibleAlways = true;
 
   auto& style = ImGui::GetStyle();
 
@@ -18,7 +20,7 @@ void InitThemesGlobal() {
   style.FrameBorderSize = 1.0f;
   style.PopupRounding = 5.0f;
   style.FrameRounding = 5.0f;
-  //style.ItemInnerSpacing
+  style.ItemSpacing = ImVec2(4, 8);
 
   // Slider
   style.GrabRounding = 10.0f;
@@ -27,6 +29,8 @@ void InitThemesGlobal() {
 
   // Complete transparent stuff in SC
   style.Colors[ImGuiCol_WindowBg]           = ImColor(0, 0, 0, 0);
+  style.Colors[ImGuiCol_ChildBg]            = ImColor(0, 0, 0, 0);
+  style.Colors[ImGuiCol_PopupBg]            = ImColor(0, 0, 0, 0);
   style.Colors[ImGuiCol_ChildBg]            = ImColor(0, 0, 0, 0);
   style.Colors[ImGuiCol_Header]             = ImColor(0, 0, 0, 0);
   style.Colors[ImGuiCol_HeaderHovered]      = ImColor(0, 0, 0, 0);
@@ -49,6 +53,7 @@ void GluesTheme() {
 
   style.Colors[ImGuiCol_WindowBg]           = ImColor(0, 0, 0);
   style.Colors[ImGuiCol_ChildBg]            = ImColor(0, 0, 0);
+  style.Colors[ImGuiCol_PopupBg]            = ImColor(0, 0, 0);
   style.Colors[ImGuiCol_Text]               = ImColor(164, 180, 248);
   style.Colors[ImGuiCol_TextDisabled]       = ImColor(88, 88, 88);
   style.Colors[ImGuiCol_Border]             = ImColor(108, 0, 0);
@@ -68,6 +73,7 @@ void GameTheme() {
 
   style.Colors[ImGuiCol_WindowBg]           = ImColor(0, 16, 52, 128);
   style.Colors[ImGuiCol_ChildBg]            = ImColor(0, 16, 52, 128);
+  style.Colors[ImGuiCol_PopupBg]            = ImColor(0, 16, 52, 128);
   style.Colors[ImGuiCol_Text]               = ImColor(164, 180, 248);
   style.Colors[ImGuiCol_TextDisabled]       = ImColor(88, 88, 88);
   style.Colors[ImGuiCol_Border]             = ImColor(8, 52, 152);

@@ -10,6 +10,7 @@ const char* gamespeeds[] = { "Slowest", "Slower", "Slow", "Normal", "Fast", "Fas
 int gamespeed_selected = 6;
 
 void RenderGluesTest() {
+  static int oneoff = (ImGui::SetNavCursorVisible(false), 1);
   ImGui::BeginTable("", 2);
   ImGui::TableNextRow();
   {
@@ -17,7 +18,7 @@ void RenderGluesTest() {
     Text("Game Type");
     
     ImGui::TableSetColumnIndex(1);
-    Combo("##gametype", &gametype_selected, gametypes, std::size(gametypes));
+    SCCombo("##gametype", &gametype_selected, gametypes, std::size(gametypes));
   }
 
   ImGui::TableNextRow();
@@ -54,6 +55,7 @@ bool color_cycling = true;
 int portraits = 0;
 
 void RenderGameTest() {
+  static int oneoff = (ImGui::SetNavCursorVisible(false), 1);
   // title
   ImGui::PushFont(nullptr, ImGui::GetStyle().FontSizeBase * 1.5f);
   float x = (ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Video Options").x) / 2;
@@ -64,11 +66,13 @@ void RenderGameTest() {
   Text("Gamma Correction");
   Slider("##gamma", &gamma, 0, 255);
 
-  ImGui::Spacing();
+  ImGui::Dummy(ImVec2(0, 16));
   SCCheckbox("Enable Color Cycling", &color_cycling);
+  ImGui::Dummy(ImVec2(0, 22));
 
-  ImGui::Spacing();
+  ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(220, 220, 60, 255));
   SCRadioButton("Animating unit portraits", &portraits, 0);
   SCRadioButton("Still unit portraits", &portraits, 1);
   SCRadioButton("Disable unit portraits", &portraits, 2);
+  ImGui::PopStyleColor();
 }
